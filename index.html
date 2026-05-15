@@ -452,7 +452,15 @@
       place-items: center;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .8);
     }
-    .product-media svg.plush { width: 90%; max-width: 420px; height: auto; }
+    .product-photo,
+    .product-media svg.plush {
+      width: 90%;
+      max-width: 420px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 30px 35px rgba(60,40,30,.18));
+      display: block;
+    }
     .product-card:hover .product-media svg { transform: scale(1.04) rotate(-1deg); transition: transform .8s var(--ease-soft); }
     .product-media svg { transition: transform .8s var(--ease-soft); }
     .floating-tag {
@@ -1541,7 +1549,7 @@
                <img class="product-photo" src="ma-peluche.jpg" alt="Peluche panda">
                (et copie l'image dans le même dossier que ce fichier HTML)
           -->
-          <svg viewBox="0 0 500 500" aria-label="Grande peluche panda velours" style="width:90%;max-width:420px;height:auto;filter:drop-shadow(0 30px 35px rgba(60,40,30,.18));">
+          <img class="product-photo" src="panda.png" alt="Peluche panda">
             <defs>
               <!-- Studio backdrop -->
               <radialGradient id="studio" cx="50%" cy="42%" r="65%">
