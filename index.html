@@ -1532,49 +1532,201 @@
         <span class="chip">Offre limitée</span>
       </div>
 
-      <article class="card product-card" style="display:grid; grid-template-columns:1.05fr .95fr; gap:24px; padding:24px; background:var(--paper); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow-md); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);">
+      <article class="card product-card">
+        <div class="product-media">
+          <span class="limited-tag"><span class="pulse"></span> Plus que <span id="stockTag">10</span> gratuites</span>
+          <!--
+            👉 Pour remplacer par une vraie photo :
+               supprime le <svg> ci-dessous et mets à la place :
+               <img class="product-photo" src="ma-peluche.jpg" alt="Peluche panda">
+               (et copie l'image dans le même dossier que ce fichier HTML)
+          -->
+          <svg viewBox="0 0 500 500" aria-label="Grande peluche panda velours" style="width:90%;max-width:420px;height:auto;filter:drop-shadow(0 30px 35px rgba(60,40,30,.18));">
+            <defs>
+              <!-- Studio backdrop -->
+              <radialGradient id="studio" cx="50%" cy="42%" r="65%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#000000" stop-opacity=".08"/>
+              </radialGradient>
+              <!-- White fur body -->
+              <radialGradient id="furBody" cx="42%" cy="38%" r="65%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="55%" stop-color="#fbf4ec"/>
+                <stop offset="100%" stop-color="#d9c9bb"/>
+              </radialGradient>
+              <radialGradient id="furHead" cx="45%" cy="35%" r="60%">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="60%" stop-color="#fcf6ee"/>
+                <stop offset="100%" stop-color="#ddccbd"/>
+              </radialGradient>
+              <!-- Black fur -->
+              <radialGradient id="furBlack" cx="40%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#4a3a30"/>
+                <stop offset="60%" stop-color="#2a1f1a"/>
+                <stop offset="100%" stop-color="#1a120e"/>
+              </radialGradient>
+              <radialGradient id="furBlackSmall" cx="35%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#3d2e26"/>
+                <stop offset="100%" stop-color="#1a120e"/>
+              </radialGradient>
+              <!-- Eye -->
+              <radialGradient id="eyeGrad" cx="40%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#5a4339"/>
+                <stop offset="100%" stop-color="#1a120e"/>
+              </radialGradient>
+              <!-- Nose -->
+              <radialGradient id="noseGrad" cx="35%" cy="30%" r="80%">
+                <stop offset="0%" stop-color="#4a3a30"/>
+                <stop offset="100%" stop-color="#1a120e"/>
+              </radialGradient>
+              <!-- Pink ribbon -->
+              <linearGradient id="ribbon" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff9ec4"/>
+                <stop offset="100%" stop-color="#ee6ba2"/>
+              </linearGradient>
+              <linearGradient id="ribbonShine" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity=".5"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+              </linearGradient>
+              <!-- Soft fuzz texture filter -->
+              <filter id="fuzz" x="-2%" y="-2%" width="104%" height="104%">
+                <feTurbulence type="fractalNoise" baseFrequency="2.4" numOctaves="2" seed="3"/>
+                <feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .35 0"/>
+                <feComposite in="SourceGraphic" operator="over"/>
+              </filter>
+            </defs>
 
-  <div class="product-media" style="position:relative; border-radius:22px; overflow:hidden; background:radial-gradient(circle at 50% 40%, #fff, var(--pink-soft) 90%); min-height:440px; display:flex; align-items:center; justify-content:center;">
-    <span class="limited-tag" style="position:absolute; top:16px; left:16px; z-index:2; padding:9px 14px; border-radius:999px; background:var(--ink); color:#fff; font-weight:800; font-size:12.5px; box-shadow:var(--shadow-md); display:inline-flex; align-items:center; gap:8px;">
-      <span class="pulse" style="width:8px; height:8px; border-radius:50%; background:var(--pink-deep); box-shadow:0 0 0 0 var(--pink-deep);"></span>
-      Plus que <span id="stockTag">10</span> gratuites
-    </span>
+            <!-- Ground shadow -->
+            <ellipse cx="250" cy="465" rx="155" ry="20" fill="#000" opacity=".14"/>
+            <ellipse cx="250" cy="465" rx="120" ry="12" fill="#000" opacity=".1"/>
 
-    <img
-      class="product-photo"
-      src="3fb66ebf599749d63ee295a8e4a248b6.png"
-      alt="Peluche panda"
-      style="width:100%; height:100%; max-width:100%; max-height:100%; object-fit:contain; object-position:center; display:block;"
-    >
-  </div>
+            <!-- Body -->
+            <ellipse cx="250" cy="345" rx="155" ry="118" fill="url(#furBody)"/>
+            <!-- Body fuzz overlay -->
+            <ellipse cx="250" cy="345" rx="155" ry="118" fill="white" filter="url(#fuzz)" opacity=".4"/>
+            <!-- Belly highlight -->
+            <ellipse cx="250" cy="365" rx="90" ry="60" fill="#ffffff" opacity=".5"/>
+            <!-- Belly stitch -->
+            <path d="M 250 285 Q 245 350 250 410" stroke="#c4b09d" stroke-width="1.5" fill="none" opacity=".4" stroke-dasharray="3 4"/>
 
-  <div class="product-content" style="display:flex; flex-direction:column; justify-content:center; padding:8px;">
-    <span class="mini-tag" style="display:inline-block; padding:6px 12px; background:var(--sage); color:var(--ink); font-size:12px; font-weight:800; border-radius:999px; margin-bottom:12px; align-self:flex-start;">Best-seller panda</span>
+            <!-- Left ear -->
+            <circle cx="125" cy="115" r="48" fill="url(#furBlack)"/>
+            <circle cx="125" cy="115" r="48" fill="black" filter="url(#fuzz)" opacity=".3"/>
+            <circle cx="125" cy="115" r="26" fill="#4a3a30" opacity=".6"/>
 
-    <h4 style="margin:0 0 12px; font-family:'Caprasimo', serif; font-weight:400; font-size:clamp(28px, 3.4vw, 42px); line-height:.98; letter-spacing:-.01em;">Grande peluche panda velours</h4>
+            <!-- Right ear -->
+            <circle cx="375" cy="115" r="48" fill="url(#furBlack)"/>
+            <circle cx="375" cy="115" r="48" fill="black" filter="url(#fuzz)" opacity=".3"/>
+            <circle cx="375" cy="115" r="26" fill="#4a3a30" opacity=".6"/>
 
-    <p class="product-desc" style="margin:0 0 22px; color:var(--muted); font-size:15px; max-width:42ch;">
-      Une vraie grosse peluche toute douce. Velours premium, finitions soignées, format câlin XXL. Le doudou définitif pour les grands et les petits.
-    </p>
+            <!-- Head -->
+            <circle cx="250" cy="200" r="138" fill="url(#furHead)"/>
+            <!-- Head fuzz overlay -->
+            <circle cx="250" cy="200" r="138" fill="white" filter="url(#fuzz)" opacity=".4"/>
 
-    <div class="price-row" style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; margin-bottom:22px; padding:16px; background:rgba(197, 224, 192, .25); border:1px dashed rgba(135, 184, 127, .4); border-radius:var(--radius-sm);">
-      <div>
-        <span class="price-free" style="font-family:'Caprasimo', serif; font-size:38px; line-height:1; color:var(--sage-deep);">0,00 €</span>
-        <span class="price-old" style="display:block; margin-top:4px; font-size:14px; color:var(--muted); text-decoration:line-through;">39,99 €</span>
-      </div>
-      <div class="stock-box" style="text-align:center; min-width:100px;">
-        <strong style="display:block; font-family:'Caprasimo', serif; font-size:38px; line-height:1; color:var(--ink);">7</strong>
-        <span style="font-size:11.5px; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.05em;">gratuits</span>
-      </div>
-    </div>
+            <!-- Eye patches -->
+            <ellipse cx="190" cy="208" rx="40" ry="50" fill="url(#furBlack)" transform="rotate(-18 190 208)"/>
+            <ellipse cx="190" cy="208" rx="40" ry="50" fill="black" filter="url(#fuzz)" opacity=".25" transform="rotate(-18 190 208)"/>
 
-    <ul class="features" style="margin:0 0 24px; padding:0; list-style:none; display:grid; gap:10px;">
-      <li style="display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--ink-soft);">✔ Velours ultra doux, hypoallergénique</li>
-      <li style="display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--ink-soft);">✔ Grand format câlin (≈ 45 cm)</li>
-      <li style="display:flex; align-items:center; gap:10px; font-size:14.5px; color:var(--ink-soft);">✔ Livraison rapide et soignée</li>
-    </ul>
-  </div>
-</article>
+            <ellipse cx="310" cy="208" rx="40" ry="50" fill="url(#furBlack)" transform="rotate(18 310 208)"/>
+            <ellipse cx="310" cy="208" rx="40" ry="50" fill="black" filter="url(#fuzz)" opacity=".25" transform="rotate(18 310 208)"/>
+
+            <!-- Eyes -->
+            <ellipse cx="195" cy="212" rx="13" ry="15" fill="url(#eyeGrad)"/>
+            <ellipse cx="305" cy="212" rx="13" ry="15" fill="url(#eyeGrad)"/>
+            <!-- Eye highlights -->
+            <ellipse cx="190" cy="207" rx="4.5" ry="5" fill="#ffffff"/>
+            <ellipse cx="300" cy="207" rx="4.5" ry="5" fill="#ffffff"/>
+            <ellipse cx="198" cy="216" rx="2" ry="2" fill="#ffffff" opacity=".7"/>
+            <ellipse cx="308" cy="216" rx="2" ry="2" fill="#ffffff" opacity=".7"/>
+
+            <!-- Cheek blush -->
+            <ellipse cx="135" cy="262" rx="26" ry="14" fill="#ff9ec4" opacity=".5"/>
+            <ellipse cx="365" cy="262" rx="26" ry="14" fill="#ff9ec4" opacity=".5"/>
+
+            <!-- Nose -->
+            <ellipse cx="250" cy="262" rx="17" ry="13" fill="url(#noseGrad)"/>
+            <ellipse cx="246" cy="257" rx="5" ry="3" fill="#ffffff" opacity=".4"/>
+
+            <!-- Mouth -->
+            <path d="M 226 285 Q 250 305 274 285" stroke="#2a1f1a" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+            <path d="M 234 287 Q 250 300 266 287" fill="#ff7ea8"/>
+
+            <!-- Pink ribbon (around neck) -->
+            <path d="M 165 320 Q 250 295 335 320 L 335 340 Q 250 320 165 340 Z" fill="url(#ribbon)"/>
+            <path d="M 165 320 Q 250 295 335 320 L 335 326 Q 250 305 165 326 Z" fill="url(#ribbonShine)"/>
+            <!-- Bow center -->
+            <ellipse cx="250" cy="328" rx="14" ry="18" fill="url(#ribbon)"/>
+            <!-- Bow left -->
+            <path d="M 250 328 Q 218 305 208 330 Q 218 350 250 328" fill="url(#ribbon)"/>
+            <path d="M 250 328 Q 218 305 208 330 Q 218 350 250 328" fill="url(#ribbonShine)" opacity=".6"/>
+            <!-- Bow right -->
+            <path d="M 250 328 Q 282 305 292 330 Q 282 350 250 328" fill="url(#ribbon)"/>
+            <path d="M 250 328 Q 282 305 292 330 Q 282 350 250 328" fill="url(#ribbonShine)" opacity=".6"/>
+            <!-- Bow knot highlight -->
+            <ellipse cx="246" cy="324" rx="3" ry="5" fill="#ffffff" opacity=".4"/>
+
+            <!-- Arms -->
+            <ellipse cx="115" cy="355" rx="36" ry="52" fill="url(#furBlack)" transform="rotate(-22 115 355)"/>
+            <ellipse cx="115" cy="355" rx="36" ry="52" fill="black" filter="url(#fuzz)" opacity=".25" transform="rotate(-22 115 355)"/>
+
+            <ellipse cx="385" cy="355" rx="36" ry="52" fill="url(#furBlack)" transform="rotate(22 385 355)"/>
+            <ellipse cx="385" cy="355" rx="36" ry="52" fill="black" filter="url(#fuzz)" opacity=".25" transform="rotate(22 385 355)"/>
+
+            <!-- Legs / paws -->
+            <ellipse cx="180" cy="445" rx="48" ry="32" fill="url(#furBlack)"/>
+            <ellipse cx="180" cy="445" rx="48" ry="32" fill="black" filter="url(#fuzz)" opacity=".25"/>
+            <!-- Paw pad -->
+            <ellipse cx="180" cy="450" rx="18" ry="11" fill="#ff9ec4" opacity=".8"/>
+            <circle cx="168" cy="438" r="3.5" fill="#ff9ec4" opacity=".7"/>
+            <circle cx="180" cy="434" r="3.5" fill="#ff9ec4" opacity=".7"/>
+            <circle cx="192" cy="438" r="3.5" fill="#ff9ec4" opacity=".7"/>
+
+            <ellipse cx="320" cy="445" rx="48" ry="32" fill="url(#furBlack)"/>
+            <ellipse cx="320" cy="445" rx="48" ry="32" fill="black" filter="url(#fuzz)" opacity=".25"/>
+            <ellipse cx="320" cy="450" rx="18" ry="11" fill="#ff9ec4" opacity=".8"/>
+            <circle cx="308" cy="438" r="3.5" fill="#ff9ec4" opacity=".7"/>
+            <circle cx="320" cy="434" r="3.5" fill="#ff9ec4" opacity=".7"/>
+            <circle cx="332" cy="438" r="3.5" fill="#ff9ec4" opacity=".7"/>
+
+            <!-- Sparkles -->
+            <text x="60" y="180" font-size="22" fill="#ffd89e" opacity=".8">✦</text>
+            <text x="430" y="160" font-size="18" fill="#ff9ec4" opacity=".8">✦</text>
+            <text x="80" y="380" font-size="14" fill="#ffd89e" opacity=".7">✦</text>
+            <text x="420" y="400" font-size="16" fill="#ff9ec4" opacity=".7">✦</text>
+          </svg>
+          <span class="floating-tag">🤍 Velours premium</span>
+        </div>
+        <div class="product-content">
+          <span class="mini-tag">⭐ Best-seller panda</span>
+          <h4>Grande peluche panda velours</h4>
+          <p class="product-desc">Une vraie grosse peluche toute douce. Velours premium, finitions soignées, format câlin XXL. Le doudou définitif pour les grands et les petits.</p>
+
+          <div class="price-row">
+            <div>
+              <div class="price-free">0,00 €</div>
+              <span class="price-old">39,99 €</span>
+            </div>
+            <div class="stock-box">
+              <strong id="stockNumber">10</strong>
+              <span>gratuites</span>
+            </div>
+          </div>
+
+          <ul class="features">
+            <li>Velours ultra doux, hypoallergénique</li>
+            <li>Grand format câlin (≈ 45 cm)</li>
+            <li>Livraison sous 24 ronrons</li>
+          </ul>
+
+          <div class="product-cta">
+            <button type="button" class="btn btn-primary add-btn" data-id="1">
+              Ajouter au panier
+            </button>
+            <button type="button" class="btn btn-secondary" id="quickBuy">Je la veux maintenant</button>
+          </div>
+        </div>
+      </article>
     </section>
 
     <!-- ============ REVIEWS ============ -->
